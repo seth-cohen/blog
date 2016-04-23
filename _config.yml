@@ -43,7 +43,7 @@ owner:
   bio:            "Chemical Engineer turned Web Developer. I have a desire to learn, tinker and help others do the same."
   email:          seth.h.cohen@gmail
   # Twitter nick for use in Twitter cards and follow button.
-  twitter: @SethxHxCohen  # if no twitter in this config, the twitter follow button will be removed
+  twitter: SethxHxCohen  # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
   github: seth-cohen
 
