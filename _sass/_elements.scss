@@ -54,6 +54,18 @@ figure {
       }
     }
   }
+  &.twoThirds {
+    @media #{$large} {
+      img {
+        width: 400px;
+        float: left;
+        margin-right: 10px;
+      }
+      figcaption {
+        clear: left;
+      }
+    }
+  }
 }
 svg:not(:root) {
   overflow: hidden;

@@ -40,7 +40,9 @@ owner:
   name:           Seth Cohen
   site:           http://meta-webdev.com
   avatar:         images/avatar.jpg
-  bio:            "Chemical Engineer turned Web Developer. I have a desire to learn, tinker and help others do the same."
+  bio:            "No, I am not a dog. I just love my Mars-bars. I am actually a 
+                  Chemical Engineer turned Web Developer that has always had a passion for building applications. 
+                  I have a desire to learn, tinker and help others do the same."
   email:          seth.h.cohen@gmail
   # Twitter nick for use in Twitter cards and follow button.
   twitter: SethxHxCohen  # if no twitter in this config, the twitter follow button will be removed
@@ -96,7 +98,6 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  enable_coderay: true
 
   coderay:
     coderay_line_numbers: nil

@@ -35,6 +35,11 @@
 <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
 <link rel="stylesheet" href="{{ site.url }}/assets/css/jquery.mmenu.all.css">
 <link rel="stylesheet" href="{{ site.url }}/assets/css/jquery.floating-social-share.min.css">
+{% if page.custom_css %}
+  {% for stylesheet in page.custom_css %}
+  <link rel="stylesheet" href="{{ site.url }}/assets/css/{{ stylesheet }}.css" media="screen" type="text/css">
+  {% endfor %}
+{% endif %}
 <!-- Webfonts -->
 <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
 

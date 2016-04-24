@@ -1,5 +1,8 @@
 .highlight {
 	margin-bottom: 1.5em;
+	.ui-tabs-panel & {
+		margin-bottom: 0;
+	}
 	@include font(12);
 	color: #d0d0d0;
 	border: 1px solid darken($body-color, 5);
