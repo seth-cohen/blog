@@ -18,10 +18,6 @@ url: http://blog.meta-webdev.com
 menu:
   - title: 'Home'
     url: '/'
-  - title: 'Fork'
-    url: 'http://github.com/seth-cohen/blog'
-  - title: 'Install'
-    url: '/theme-setup/'
   - title: 'Tags'
     url: '/tags'
   - title: 'Categories'
@@ -30,10 +26,8 @@ menu:
   - title: 'Favorites'
     url: '#'
     submenu:
-      - title: 'Code Highlighter'
+      - title: 'Angular'
         url: '/intro/code-highlighting-post/'
-      - title: 'Sample Post'
-        url: '/intro/sample-post/'
 
 # Owner/author information
 owner:
