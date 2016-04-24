@@ -59,7 +59,6 @@ $(document).ready(function(e) {
       header.attr('class', 'header-menu header-menu-top');
     }
   });
-  $('#tabs').tabs();
 });
 
 //mobile menu
@@ -97,3 +96,7 @@ var sharing = function(){
     });
 };//sharing
 
+// tabs
+$(document).ready(function(e) {
+  $('#tabs').tabs().removeClass('hidden');
+});
