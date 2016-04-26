@@ -28,23 +28,43 @@ By the end of this part in the series we will have NodeJS serving up our applica
 ## Setting up the Development Environment
 
 ### npm
-A bit mystifying, [npm](https://docs.npmjs.com) stands for Nodeschool Public Materials. You don't actually _need_ npm but it will facilitate installing NodeJS and setting up and running our localhost server.
+A bit mystifying, [npm](https://npmjs.com) stands for Nodeschool Public Materials. You don't actually _need_ npm but it will facilitate installing NodeJS and setting up and running our localhost server. Fortunately, the [documentation](https://docs.npmjs.com) is very good so we don't need to cover installing and setting it up here. 
 
 ### NodeJS
 Hopefully, you are at least somewhat familiar with NodeJS. If not I'd suggest looking through the documentation a bit. You won't need any advanced features but we will need to be able to serve static files. So go ahead and [install npm and NodeJS](https://docs.npmjs.com/getting-started/installing-node "Install npm and NodeJS"){:target="_blank"} now. I'll wait right here for you.
 
 We are going to use a [package.json](https://docs.npmjs.com/files/package.json){:target="_blank"} to manage our dependencies. So let's first create a new dir, cd into it and create our file.
 
-
+Let's create our project directory.
 {% highlight bash %}
   $ mkdir angular_tutorial
   $ cd angular_tutorial
-  $ vim package.json
+  $ npm init
 {% endhighlight %}
 
+
+This will automatically create our package.json file for us. To this we will add the relevent Angular2 packages.
+
+We are going to use the express package to serve up our (for now just static) files. So we need to add this, as well. 
+
+We will create a server.js to house, well... our server code :). Note that we are using express.static and [virtual](http://expressjs.com/en/starter/static-files.html) folder to hide our actual directory structure from visitors to our site. 
+
+#### Project Structure
+```
+.
+├── package.json
+├── public
+│   ├── app
+│   │   └── js
+│   │       ├── app.component.js
+│   │       └── main.js
+│   └── index.html
+└── server.js
+```
 <div id="tabs" class="hidden">
   <ul>
     <li><a href="#package-json">package.json</a></li>
+    <li><a href="#server-js">server.js</a></li>
     <li><a href="#index-html">index.html</a></li>
   </ul>
 
@@ -72,16 +92,33 @@ We are going to use a [package.json](https://docs.npmjs.com/files/package.json){
     }
     {% endhighlight %}
   </div>
+  <div id="server-js">
+    {% highlight javascript %}
+    var express = require('express');
+    var path = require('path');
+    var app = express();
 
+    /**
+     * Serve our static js files - as requested by RequireJS
+     */
+    app.use(express.static('public'));
+    app.use('/libs', express.static(path.join(__dirname, 'node_modules')));
+    app.use('/app', express.static(path.join(__dirname, 'public/app')));
+
+    app.listen(3000, function () {
+      console.log('Example app listening on port 3000!');
+    });
+    {% endhighlight %}
+  </div>
   <div id="index-html">
     {% highlight html %}
     <html>
       <head>
-        <title>Meta-WebDev: Angular 2 With Vanilla JS</title>
+        <title>Seth Cohen - Angular 2 Crud SPA Example</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-        <!-- Global Angular 2 libraries -->
+        <!-- global Angular 2 libraries -->
         <script src="/libs/es6-shim/es6-shim.min.js"></script>
         <script src="/libs/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
 
@@ -89,14 +126,12 @@ We are going to use a [package.json](https://docs.npmjs.com/files/package.json){
         <script src="/libs/rxjs/bundles/Rx.umd.js"></script>
         <script src="/libs/angular2/bundles/angular2-all.umd.js"></script>
 
-        <!-- RequireJS entry point -->
-        <script data-main="/app/js/main.js" src="/app/js/libs/require.js"></script>
+        <!-- requireJS entry point -->
+        <script data-main="/app/js/main.js" src="/libs/requirejs/require.js"></script>
       </head>
-      <base href="/">
       <body>
-        <care-app></care-app>
+        <tutorial-app></tutorial-app>
       </body>
-
     </html>
     {% endhighlight %}
   </div>
