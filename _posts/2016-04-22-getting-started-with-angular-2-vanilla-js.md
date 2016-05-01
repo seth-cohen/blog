@@ -4,6 +4,7 @@ title: Angular 2, Vanilla JS and RequireJS - Part 1
 description: "Getting you started with Angular2, JS (not Typescript) and RequireJS"
 modified: 2016-04-22
 tags: [angular, javascript, requirejs]
+comments: true
 categories: [code, tutorials]
 custom_js: vendor/jquery-ui.min
 custom_css: jquery-ui.min
